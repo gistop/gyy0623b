@@ -21,13 +21,18 @@ if (writeBtn && readBtn && d1Input) {
     }
     try {
       const res = await fetch("/api/write", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-      });
-      if (!res.ok) throw new Error(`写入失败: ${res.status}`);
-      const data = await res.json();
-      alert(`写入成功！ID: ${data.id}`);
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message }),
+});
+
+const data = await res.json();
+
+if (!res.ok) {
+  throw new Error(data.error || `写入失败: ${res.status}`);
+}
+
+alert(`写入成功！ID: ${data.id}`);
       d1Input.value = "";
     } catch (err) {
       alert(`错误: ${err.message}`);
