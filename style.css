@@ -55,7 +55,7 @@ nav a:hover {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  align-items: center;
+  align-items: start;
   gap: 48px;
 }
 
@@ -83,13 +83,21 @@ h1 {
   line-height: 1.7;
 }
 
+.action-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 26px;
+}
+
 .button,
 .contact-form button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 42px;
-  margin-top: 26px;
+  margin-top: 0;
   border: 0;
   border-radius: 8px;
   padding: 0 16px;
@@ -97,6 +105,29 @@ h1 {
   color: white;
   cursor: pointer;
   font-weight: 800;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: #1250b0;
+}
+
+.d1-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.d1-toolbar input {
+  height: 42px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  padding: 0 12px;
+  font: inherit;
+  min-width: 200px;
+  box-sizing: border-box;
 }
 
 .hero-panel,
@@ -110,6 +141,7 @@ h1 {
 
 .hero-panel {
   padding: 28px;
+  align-self: start;
 }
 
 .hero-panel h2,
@@ -197,5 +229,21 @@ h1 {
 
   h1 {
     font-size: 32px;
+  }
+
+  .action-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .d1-toolbar {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .d1-toolbar input {
+    min-width: 0;
+    width: 100%;
   }
 }
